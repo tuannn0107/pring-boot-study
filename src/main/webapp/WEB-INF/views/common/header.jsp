@@ -37,5 +37,8 @@
                 </div>
             </li>
         </ul>
+        <ul class="navbar-nav ml-auto">
+            <li><a href="${pageContext.request.contextPath}/logout"><img src="${pageContext.request.contextPath}/resources/images/logout.png" alt="Logout"></a></li>
+        </ul>
     </div>
 </nav>
