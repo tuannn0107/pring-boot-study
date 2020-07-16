@@ -1,6 +1,7 @@
-package com.tnn.study.spring.security.repository;
+package com.tnn.study.spring.boot.repository;
 
-import com.tnn.study.spring.security.model.ApplicationUser;
+
+import com.tnn.study.spring.boot.model.ApplicationUser;
 
 import java.util.List;
 

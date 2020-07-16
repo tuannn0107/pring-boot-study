@@ -1,8 +1,8 @@
-package com.tnn.study.spring.security.authen;
+package com.tnn.study.spring.boot.authen;
 
-import com.tnn.study.spring.security.model.ApplicationUser;
-import com.tnn.study.spring.security.service.ApplicationAuthenticationService;
-import com.tnn.study.spring.security.service.ApplicationUserService;
+import com.tnn.study.spring.boot.model.ApplicationUser;
+import com.tnn.study.spring.boot.service.ApplicationAuthenticationService;
+import com.tnn.study.spring.boot.service.ApplicationUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+
+import java.nio.file.attribute.UserPrincipalNotFoundException;
 
 public class AuthenticationManagerCustom implements AuthenticationManager {
     private static Logger logger = LoggerFactory.getLogger(AuthenticationManagerCustom.class);
@@ -25,7 +27,7 @@ public class AuthenticationManagerCustom implements AuthenticationManager {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         logger.info("Start authenticate!");
 
-        /*ApplicationUser applicationUser = obtainApplicationUser(authentication);
+        ApplicationUser applicationUser = obtainApplicationUser(authentication);
         if (applicationUser == null) {
             throw new BadCredentialsException("Could not obtain ApplicationUser");
         }
@@ -43,7 +45,7 @@ public class AuthenticationManagerCustom implements AuthenticationManager {
             }
         } catch (UserPrincipalNotFoundException e) {
             throw new BadCredentialsException(e.getMessage());
-        }*/
+        }
         throw new AuthenticationCredentialsNotFoundException("Authentication failed!");
     }
 

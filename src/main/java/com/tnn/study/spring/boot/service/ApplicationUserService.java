@@ -1,13 +1,14 @@
-package com.tnn.study.spring.security.service;
+package com.tnn.study.spring.boot.service;
 
-import com.tnn.study.spring.security.model.ApplicationUser;
+
+import com.tnn.study.spring.boot.model.ApplicationUser;
 
 import java.util.List;
 
 public interface ApplicationUserService {
     /**
      * read list user
-     * @return {@link List< ApplicationUser >}
+     * @return {@link List<ApplicationUser>}
      */
     List<ApplicationUser> readApplicationUserList();
 

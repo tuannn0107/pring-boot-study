@@ -1,4 +1,4 @@
-package com.tnn.study.spring.security.authen;
+package com.tnn.study.spring.boot.authen;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

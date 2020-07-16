@@ -16,6 +16,23 @@ public class ApplicationUser extends User {
         super(username, password, authorities);
     }
 
+    public ApplicationUser(String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
+        super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
+    }
+
+    @Override
+    public boolean equals(Object rhs) {
+        ApplicationUser other = (ApplicationUser) rhs;
+        return this.getUsername().equals(other.getUsername())
+                && this.getPassword().equals(other.getPassword())
+                && this.getAuthorities().equals(other.getAuthorities());
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
     public String getFullname() {
         return fullname;
     }

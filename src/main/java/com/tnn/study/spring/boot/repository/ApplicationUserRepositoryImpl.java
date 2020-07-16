@@ -1,8 +1,10 @@
-package com.tnn.study.spring.security.repository;
+package com.tnn.study.spring.boot.repository;
 
-import com.tnn.study.spring.security.model.ApplicationUser;
+import com.tnn.study.spring.boot.model.ApplicationUser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -14,6 +16,9 @@ import java.util.Set;
 @Repository
 public class ApplicationUserRepositoryImpl implements ApplicationUserRepository {
     private static List<ApplicationUser> applicationUsersList = new ArrayList<>();
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     /**
      * mock application user list
@@ -61,7 +66,7 @@ public class ApplicationUserRepositoryImpl implements ApplicationUserRepository 
         grantedAuthorities.add(new SimpleGrantedAuthority("admin"));
 
         for (long i = 0; i < 10; i++) {
-            applicationUser = new ApplicationUser("username" + i, "password" + 1, true, true, true, true,grantedAuthorities);
+            applicationUser = new ApplicationUser("username" + i, bCryptPasswordEncoder.encode("password" + 1), true, true, true, true,grantedAuthorities);
             res.add(applicationUser);
         }
         return res;

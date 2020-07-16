@@ -1,8 +1,7 @@
-package com.tnn.study.spring.security.service;
+package com.tnn.study.spring.boot.service;
 
-import com.tnn.study.spring.security.authen.LogoutSuccessHandlerCustom;
-import com.tnn.study.spring.security.model.ApplicationUser;
-import com.tnn.study.spring.security.repository.ApplicationUserRepository;
+import com.tnn.study.spring.boot.model.ApplicationUser;
+import com.tnn.study.spring.boot.repository.ApplicationUserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

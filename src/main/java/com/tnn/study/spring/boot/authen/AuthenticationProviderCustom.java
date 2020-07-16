@@ -1,18 +1,11 @@
-package com.tnn.study.spring.security.authen;
+package com.tnn.study.spring.boot.authen;
 
-import com.tnn.study.spring.security.model.ApplicationUser;
-import com.tnn.study.spring.security.service.ApplicationAuthenticationService;
-import com.tnn.study.spring.security.service.ApplicationUserService;
+import com.tnn.study.spring.boot.model.ApplicationUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-
-import java.nio.file.attribute.UserPrincipalNotFoundException;
 
 public class AuthenticationProviderCustom implements AuthenticationProvider {
     private static Logger logger = LoggerFactory.getLogger(AuthenticationProviderCustom.class);

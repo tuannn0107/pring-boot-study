@@ -1,6 +1,7 @@
-package com.tnn.study.spring.security.service;
+package com.tnn.study.spring.boot.service;
 
-import com.tnn.study.spring.security.model.ApplicationUser;
+
+import com.tnn.study.spring.boot.model.ApplicationUser;
 
 import javax.naming.AuthenticationException;
 import java.nio.file.attribute.UserPrincipalNotFoundException;

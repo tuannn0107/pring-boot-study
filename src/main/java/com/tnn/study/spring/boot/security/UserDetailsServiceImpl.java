@@ -1,6 +1,7 @@
 package com.tnn.study.spring.boot.security;
 
 import com.tnn.study.spring.boot.model.ApplicationUser;
+import com.tnn.study.spring.boot.service.ApplicationUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,22 +20,14 @@ import java.util.Set;
  */
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService {
-
     private static Logger logger = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
 
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private ApplicationUserService applicationUserService;
 
     @Override
     public UserDetails loadUserByUsername(String userName) {
-        try {
-            Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-            grantedAuthorities.add(new SimpleGrantedAuthority("admin"));
-
-            return new org.springframework.security.core.userdetails.User("admin", bCryptPasswordEncoder.encode("123456"), grantedAuthorities);
-        } catch (Exception e) {
-            logger.error("Error occurred while load user.", e);
-        }
-        return new org.springframework.security.core.userdetails.User(null, null, null);
+        logger.info("start loadUserByUsername " + userName);
+        return applicationUserService.readApplicationUser(userName);
     }
 }
